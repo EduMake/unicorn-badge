@@ -86,6 +86,12 @@ def set_pixel(x, y, r, g, b):
 	unicorn.set_pixel(x, y, r, g, b)
 	return "ok"
 
+@app.route('/brightness/<level>')
+def set_brightness(level = 0.5):
+	unicorn.brightness(float(level))
+	unicorn.show()
+	return "ok"
+
 if __name__ == "__main__":
-	unicorn.brightness(0.3)
+	unicorn.brightness(0.1)
 	app.run(host='0.0.0.0', port=80)
